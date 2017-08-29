@@ -1,0 +1,53 @@
+{
+  "name": "weex-kongsheng",
+  "description": "weex孔圣商城",
+  "version": "0.0.1",
+  "private": true,
+  "main": "index.js",
+  "author": "dean",
+  "license": "ISC",
+  "keywords": [
+    "weex",
+    "vue"
+  ],
+  "scripts": {
+    "build:weex": "webpack --config build/webpack.extend.config.js",
+    "build:web": "webpack --config build/webpack.web.config.js",
+    "build:native": "webpack --config build/webpack.native.config.js",
+    "build": "npm run build:web&npm run build:native&npm run build:weex",
+    "dev:weex": "webpack --watch --config build/webpack.extend.config.js",
+    "dev:web": "webpack --watch --config build/webpack.web.config.js",
+    "dev:native": "webpack --watch --config build/webpack.native.config.js",
+    "copy:android": "cp dist/app.weex.js android/app/src/main/assets/index.js",
+    "copy:ios": "cp dist/app.weex.js ios/bundlejs/index.js",
+    "copy": "npm run copy:android && npm run copy:ios",
+    "serve": "node build/ip.js && serve -p 8080",
+    "debug": "weex-devtool"
+  },
+  "dependencies": {
+    "co": "^4.6.0",
+    "ip": "^1.1.5",
+    "lodash.throttle": "^4.1.1",
+    "vue": "^2.2.6",
+    "vue-router": "^2.3.0",
+    "weex-vue-render": "^0.10.4",
+    "weex-vue-router": "^0.0.4",
+    "yargs": "^7.0.2",
+    "md5":"^2.2.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.20.0",
+    "babel-loader": "^6.2.9",
+    "babel-preset-latest": "^6.24.0",
+    "babel-preset-stage-3": "^6.22.0",
+    "css-loader": "^0.26.4",
+    "postcss-loader": "^1.3.3",
+    "serve": "^1.4.0",
+    "vue-template-compiler": "^2.2.6",
+    "vue-loader": "^11.3.4",
+    "weex-loader": "^0.4.4",
+    "webpack": "^1.14.0",
+    "weex-devtool": "^0.2.79",
+    "babel-plugin-transform-object-rest-spread": "^6.20.2"
+  }
+}
